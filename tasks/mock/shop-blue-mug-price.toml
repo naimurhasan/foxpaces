@@ -1,0 +1,21 @@
+id = "shop-blue-mug-price"
+start_url = "{mock}/shop/index.html"
+instruction = "Find the price of the Blue Mug. Answer with the price only, for example $1.00."
+max_steps = 10
+
+[success]
+answer = "$12.50"
+final_url = "{mock}/shop/product.html?id=blue-mug"
+
+[[solution]]
+action = "type"
+label = "Search products"
+text = "Blue Mug"
+
+[[solution]]
+action = "click"
+label = "Blue Mug"
+
+[[solution]]
+action = "done"
+answer = "$12.50"

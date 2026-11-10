@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Checkout - Step 2 of 2</title>
+</head>
+<body>
+  <h1>Checkout: shipping</h1>
+  <form action="confirm.html" method="get">
+    <input type="hidden" name="name">
+    <input type="hidden" name="email">
+    <label for="address">Street address</label>
+    <input id="address" name="address" required>
+    <label for="city">City</label>
+    <input id="city" name="city" required>
+    <label for="shipping">Shipping method</label>
+    <select id="shipping" name="shipping">
+      <option>Standard</option>
+      <option>Express</option>
+      <option>Overnight</option>
+    </select>
+    <button type="submit">Place order</button>
+  </form>
+  <script>
+    const params = new URLSearchParams(location.search);
+    for (const field of ["name", "email"]) {
+      document.querySelector(`input[name=${field}]`).value = params.get(field) || "";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+id = "toscrape-book-price"
+start_url = "https://books.toscrape.com/"
+instruction = "What is the price of the book 'A Light in the Attic'? Answer with the price only, exactly as shown on the site."
+max_steps = 8
+
+[success]
+answer = "£51.77"

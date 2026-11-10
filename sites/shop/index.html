@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fox Shop</title>
+  <script src="products.js"></script>
+</head>
+<body>
+  <h1>Fox Shop</h1>
+  <a href="cart.html">Cart</a>
+  <label for="search">Search products</label>
+  <input id="search" type="search" placeholder="Search">
+  <ul id="results"></ul>
+  <script>
+    const search = document.getElementById("search");
+    const results = document.getElementById("results");
+    const render = () => {
+      const query = search.value.trim().toLowerCase();
+      results.innerHTML = PRODUCTS
+        .filter((p) => p.name.toLowerCase().includes(query))
+        .map((p) => `<li><a href="product.html?id=${p.id}">${p.name}</a></li>`)
+        .join("");
+    };
+    search.addEventListener("input", render);
+    render();
+  </script>
+</body>
+</html>

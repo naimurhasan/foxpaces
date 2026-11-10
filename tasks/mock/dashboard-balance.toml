@@ -1,0 +1,26 @@
+id = "dashboard-balance"
+start_url = "{mock}/dashboard/login.html"
+instruction = "Sign in with username 'demo' and password 'fox123', then report the account balance. Answer with the amount only, for example $1.00."
+max_steps = 10
+
+[success]
+answer = "$1,284.50"
+final_url = "{mock}/dashboard/home.html"
+
+[[solution]]
+action = "type"
+label = "Username"
+text = "demo"
+
+[[solution]]
+action = "type"
+label = "Password"
+text = "fox123"
+
+[[solution]]
+action = "click"
+label = "Sign in"
+
+[[solution]]
+action = "done"
+answer = "$1,284.50"

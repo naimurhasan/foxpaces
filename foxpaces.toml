@@ -1,0 +1,27 @@
+[limits]
+budget_usd = 0.50
+max_tokens_per_run = 60000
+timeout_s = 180
+action_timeout_ms = 3000
+navigation_timeout_ms = 30000
+max_output_tokens = 600
+
+[pricing."anthropic/claude-haiku-5.5"]
+input_usd_per_mtok = 0.10
+output_usd_per_mtok = 0.50
+
+[pricing."openai/gpt-6-luna"]
+input_usd_per_mtok = 0.10
+output_usd_per_mtok = 0.50
+
+[pricing."deepseek/deepseek-v4.1-flash"]
+input_usd_per_mtok = 0.051
+output_usd_per_mtok = 0.567
+
+[pricing."google/gemini-2.5-flash-lite"]
+input_usd_per_mtok = 0.10
+output_usd_per_mtok = 0.40
+
+[pricing.scripted]
+input_usd_per_mtok = 0.0
+output_usd_per_mtok = 0.0

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Product - Fox Shop</title>
+  <script src="products.js"></script>
+  <script src="cart.js"></script>
+</head>
+<body>
+  <a href="index.html">Back to shop</a>
+  <a href="cart.html">Cart</a>
+  <h1 id="name">Not found</h1>
+  <p>Price: <span id="price"></span></p>
+  <label for="quantity">Quantity</label>
+  <input id="quantity" type="number" min="1" value="1">
+  <button id="add">Add to cart</button>
+  <p id="status"></p>
+  <script>
+    const id = new URLSearchParams(location.search).get("id");
+    const product = PRODUCTS.find((p) => p.id === id);
+    if (product) {
+      document.getElementById("name").textContent = product.name;
+      document.getElementById("price").textContent = product.price;
+      document.title = `${product.name} - Fox Shop`;
+    }
+    document.getElementById("add").addEventListener("click", () => {
+      const quantity = Number(document.getElementById("quantity").value);
+      if (!product || quantity < 1) return;
+      addToCart(product.id, quantity);
+      document.getElementById("status").textContent = `Added ${quantity} x ${product.name} to cart.`;
+    });
+  </script>
+</body>
+</html>

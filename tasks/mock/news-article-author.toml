@@ -1,0 +1,20 @@
+id = "news-article-author"
+start_url = "{mock}/news/index.html"
+instruction = "Open the article about the river festival and report its author's name. Answer with the name only."
+max_steps = 10
+
+[success]
+answer = "Priya Nair"
+final_url = "{mock}/news/article.html?id=river-festival"
+
+[[solution]]
+action = "click"
+label = "Accept cookies"
+
+[[solution]]
+action = "click"
+label = "River festival"
+
+[[solution]]
+action = "done"
+answer = "Priya Nair"

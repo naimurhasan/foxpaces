@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Article - Fox Valley News</title>
+  <script src="articles.js"></script>
+</head>
+<body>
+  <a href="index.html">Back to news</a>
+  <h1 id="headline">Not found</h1>
+  <p>By <span id="author"></span></p>
+  <script>
+    const id = new URLSearchParams(location.search).get("id");
+    const article = ARTICLES.find((a) => a.id === id);
+    if (article) {
+      document.getElementById("headline").textContent = article.headline;
+      document.getElementById("author").textContent = article.author;
+      document.title = `${article.headline} - Fox Valley News`;
+    }
+  </script>
+</body>
+</html>

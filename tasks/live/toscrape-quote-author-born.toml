@@ -1,0 +1,7 @@
+id = "toscrape-quote-author-born"
+start_url = "https://quotes.toscrape.com/"
+instruction = "Find the author of the quote that begins 'The world as we have created it'. Open the author's about page and report their birth date exactly as shown there."
+max_steps = 8
+
+[success]
+answer = "March 14, 1879"

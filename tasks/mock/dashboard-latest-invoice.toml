@@ -1,0 +1,30 @@
+id = "dashboard-latest-invoice"
+start_url = "{mock}/dashboard/login.html"
+instruction = "Sign in with username 'demo' and password 'fox123'. What is the amount of the most recent invoice by date? Answer with the amount only, for example $1.00."
+max_steps = 12
+
+[success]
+answer = "$310.00"
+final_url = "{mock}/dashboard/invoices.html"
+
+[[solution]]
+action = "type"
+label = "Username"
+text = "demo"
+
+[[solution]]
+action = "type"
+label = "Password"
+text = "fox123"
+
+[[solution]]
+action = "click"
+label = "Sign in"
+
+[[solution]]
+action = "click"
+label = "Invoices"
+
+[[solution]]
+action = "done"
+answer = "$310.00"

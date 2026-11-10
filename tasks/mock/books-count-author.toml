@@ -1,0 +1,17 @@
+id = "books-count-author"
+start_url = "{mock}/books/index.html"
+instruction = "How many books by Mira Holt are in the catalog? Answer with a number only."
+max_steps = 12
+
+[success]
+answer = "3"
+
+[[solution]]
+action = "type"
+label = "Search title or author"
+text = "Mira Holt"
+submit = true
+
+[[solution]]
+action = "done"
+answer = "3"

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sign in - Fox Bank</title>
+  <script src="session.js"></script>
+</head>
+<body>
+  <h1>Sign in to Fox Bank</h1>
+  <form id="login">
+    <label for="username">Username</label>
+    <input id="username" autocomplete="off">
+    <label for="password">Password</label>
+    <input id="password" type="password">
+    <button type="submit">Sign in</button>
+  </form>
+  <p id="error" role="alert"></p>
+  <script>
+    document.getElementById("login").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      if (username === "demo" && password === "fox123") {
+        sessionStorage.setItem(SESSION_KEY, "demo");
+        location.href = "home.html";
+      } else {
+        document.getElementById("error").textContent = "Invalid username or password.";
+      }
+    });
+  </script>
+</body>
+</html>

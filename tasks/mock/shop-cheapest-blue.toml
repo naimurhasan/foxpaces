@@ -1,0 +1,15 @@
+id = "shop-cheapest-blue"
+start_url = "{mock}/shop/index.html"
+instruction = "Among products whose name starts with 'Blue', which one is the cheapest? Answer with the product name only."
+max_steps = 12
+
+[success]
+answer = "Blue Plate"
+
+[[solution]]
+action = "click"
+label = "Blue Plate"
+
+[[solution]]
+action = "done"
+answer = "Blue Plate"

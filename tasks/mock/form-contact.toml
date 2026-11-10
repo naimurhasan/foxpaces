@@ -1,0 +1,34 @@
+id = "form-contact"
+start_url = "{mock}/form/contact.html"
+instruction = "Send a Support request from ada@example.com with the message 'My order is late'. You may accept the terms. After it is sent, answer 'sent'."
+max_steps = 12
+
+[success]
+final_text = "Support will reply to ada@example.com about: My order is late"
+
+[[solution]]
+action = "type"
+label = "Your email"
+text = "ada@example.com"
+
+[[solution]]
+action = "select"
+label = "Topic"
+option = "Support"
+
+[[solution]]
+action = "type"
+label = "Message"
+text = "My order is late"
+
+[[solution]]
+action = "click"
+label = "I agree to the terms"
+
+[[solution]]
+action = "click"
+label = "Send message"
+
+[[solution]]
+action = "done"
+answer = "sent"

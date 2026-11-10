@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fox Valley News</title>
+  <script src="articles.js"></script>
+  <script src="consent.js"></script>
+</head>
+<body>
+  <h1>Fox Valley News</h1>
+  <ul id="articles"></ul>
+  <script>
+    document.getElementById("articles").innerHTML = ARTICLES
+      .map((a) => `<li><a href="article.html?id=${a.id}">${a.headline}</a></li>`)
+      .join("");
+    showConsentBanner();
+  </script>
+</body>
+</html>

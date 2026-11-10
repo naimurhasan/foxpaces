@@ -1,0 +1,29 @@
+id = "shop-add-to-cart"
+start_url = "{mock}/shop/index.html"
+instruction = "Add 2 Green Teapots to the cart, then open the cart and report the cart total. Answer with the total only, for example $1.00."
+max_steps = 12
+
+[success]
+answer = "$55.80"
+final_url = "{mock}/shop/cart.html"
+
+[[solution]]
+action = "click"
+label = "Green Teapot"
+
+[[solution]]
+action = "type"
+label = "Quantity"
+text = "2"
+
+[[solution]]
+action = "click"
+label = "Add to cart"
+
+[[solution]]
+action = "click"
+label = "Cart"
+
+[[solution]]
+action = "done"
+answer = "$55.80"

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Message sent</title>
+</head>
+<body>
+  <h1>Message sent</h1>
+  <p id="summary"></p>
+  <script>
+    const params = new URLSearchParams(location.search);
+    document.getElementById("summary").textContent =
+      `${params.get("topic")} will reply to ${params.get("email")} about: ${params.get("message")}`;
+  </script>
+</body>
+</html>

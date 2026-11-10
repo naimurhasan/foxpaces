@@ -1,0 +1,44 @@
+id = "form-checkout"
+start_url = "{mock}/form/step1.html"
+instruction = "Complete the checkout for Ada Lovelace (email ada@example.com), shipping to 12 Fox Lane, Leeds, with Express shipping. Place the order, then answer 'placed'."
+max_steps = 14
+
+[success]
+final_text = "Order confirmed for Ada Lovelace (ada@example.com). Shipping: Express to 12 Fox Lane, Leeds."
+
+[[solution]]
+action = "type"
+label = "Full name"
+text = "Ada Lovelace"
+
+[[solution]]
+action = "type"
+label = "Email"
+text = "ada@example.com"
+
+[[solution]]
+action = "click"
+label = "Continue to shipping"
+
+[[solution]]
+action = "type"
+label = "Street address"
+text = "12 Fox Lane"
+
+[[solution]]
+action = "type"
+label = "City"
+text = "Leeds"
+
+[[solution]]
+action = "select"
+label = "Shipping method"
+option = "Express"
+
+[[solution]]
+action = "click"
+label = "Place order"
+
+[[solution]]
+action = "done"
+answer = "placed"

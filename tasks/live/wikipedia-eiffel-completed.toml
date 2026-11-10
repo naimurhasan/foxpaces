@@ -1,0 +1,7 @@
+id = "wikipedia-eiffel-completed"
+start_url = "https://en.wikipedia.org/wiki/Main_Page"
+instruction = "Using Wikipedia, find the year the Eiffel Tower was completed. Answer with the year only."
+max_steps = 8
+
+[success]
+answer = "1889"

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Fox Books Catalog</title>
+  <script src="books.js"></script>
+</head>
+<body>
+  <h1>Fox Books Catalog</h1>
+  <form method="get">
+    <label for="q">Search title or author</label>
+    <input id="q" name="q">
+    <button type="submit">Search</button>
+  </form>
+  <ol id="books"></ol>
+  <nav id="pages"></nav>
+  <script>
+    const PAGE_SIZE = 5;
+    const params = new URLSearchParams(location.search);
+    const query = (params.get("q") || "").trim().toLowerCase();
+    const page = Math.max(1, Number(params.get("page")) || 1);
+    document.getElementById("q").value = params.get("q") || "";
+    const matches = BOOKS.filter((b) =>
+      `${b.title} ${b.author}`.toLowerCase().includes(query));
+    const pageCount = Math.max(1, Math.ceil(matches.length / PAGE_SIZE));
+    document.getElementById("books").innerHTML = matches
+      .slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+      .map((b) => `<li><a href="book.html?id=${b.id}">${b.title}</a></li>`)
+      .join("") || "<li>No books found.</li>";
+    const link = (n, text) => {
+      const next = new URLSearchParams({ ...(query && { q: params.get("q") }), page: n });
+      return `<a href="?${next}">${text}</a>`;
+    };
+    document.getElementById("pages").innerHTML = [
+      page > 1 ? link(page - 1, "Previous") : "",
+      `Page ${page} of ${pageCount}`,
+      page < pageCount ? link(page + 1, "Next") : "",
+    ].join(" ");
+  </script>
+</body>
+</html>

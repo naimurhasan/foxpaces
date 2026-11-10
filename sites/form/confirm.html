@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Order confirmed</title>
+</head>
+<body>
+  <h1>Thank you!</h1>
+  <p id="summary"></p>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const value = (key) => params.get(key) || "";
+    document.getElementById("summary").textContent =
+      `Order confirmed for ${value("name")} (${value("email")}). ` +
+      `Shipping: ${value("shipping")} to ${value("address")}, ${value("city")}.`;
+  </script>
+</body>
+</html>
