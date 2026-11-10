@@ -2,11 +2,53 @@
 
 FoxPaces puts AI browser agents through their paces: a reproducible benchmark where LLM-driven agents drive a real [Camoufox](https://camoufox.com) (Firefox) browser to complete web tasks, scored on success, cost, speed, and steps.
 
-![FoxPaces leaderboard](docs/leaderboard.png)
+**A live task on Wikipedia:** the agent is given only the instruction and figures out the rest.
+
+![Claude Haiku 5.5 finds the year the Eiffel Tower was completed on Wikipedia](docs/demo-wikipedia.gif)
+
+The whole task definition ([tasks/live/wikipedia-eiffel-completed.toml](tasks/live/wikipedia-eiffel-completed.toml)):
+
+```toml
+id = "wikipedia-eiffel-completed"
+start_url = "https://en.wikipedia.org/wiki/Main_Page"
+instruction = "Using Wikipedia, find the year the Eiffel Tower was completed. Answer with the year only."
+max_steps = 8
+
+[success]
+answer = "1889"
+```
+
+**A local mock task:** a two-page checkout form, checked against the confirmation page.
+
+![Claude Haiku 5.5 completes a two-page checkout form](docs/demo-checkout.gif)
+
+The task ([tasks/mock/form-checkout.toml](tasks/mock/form-checkout.toml), scripted solution omitted):
+
+```toml
+id = "form-checkout"
+start_url = "{mock}/form/step1.html"
+instruction = "Complete the checkout for Ada Lovelace (email ada@example.com), shipping to 12 Fox Lane, Leeds, with Express shipping. Place the order, then answer 'placed'."
+max_steps = 14
+
+[success]
+final_text = "Order confirmed for Ada Lovelace (ada@example.com). Shipping: Express to 12 Fox Lane, Leeds."
+```
+
+Run either one yourself:
+
+```sh
+uv run foxpaces run --headed --model anthropic/claude-haiku-5.5 --tasks tasks/live/wikipedia-eiffel-completed.toml
+uv run foxpaces run --headed --model anthropic/claude-haiku-5.5 --tasks tasks/mock/form-checkout.toml
+```
+
+The caption at the bottom shows each action the model chose, then whether the task's
+programmatic success check passed.
 
 People claim "my agent can browse the web", but there is rarely a small, honest, reproducible way to compare models on the same tasks with real cost numbers. FoxPaces is that harness: fixed tasks, programmatic success checks, every run traced, and real token costs.
 
 ## Results
+
+![FoxPaces leaderboard](docs/leaderboard.png)
 
 | Model | Success | Spread | Cost / success | Median time | Mean steps |
 |---|---|---|---|---|---|
